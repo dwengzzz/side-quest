@@ -26,6 +26,7 @@
             position: absolute;
             width: 100%;
             height: 100vh;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,6 +34,7 @@
 
             opacity: 0;
             visibility: hidden;
+
             transition: opacity 0.8s ease;
         }
 
@@ -62,20 +64,30 @@
 
         .front-content h1 {
             color: #e83e70;
+
             font-size: clamp(40px, 8vw, 90px);
+
             margin-bottom: 40px;
+
             text-shadow: 2px 3px 0px white;
         }
 
         .next-button {
             border: none;
+
             background: #f06292;
             color: white;
+
             padding: 15px 45px;
+
             font-size: 22px;
+
             border-radius: 50px;
+
             cursor: pointer;
+
             box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+
             transition: 0.3s;
         }
 
@@ -90,16 +102,25 @@
 
         .heart {
             position: fixed;
+
             bottom: -50px;
+
             font-size: 25px;
+
             animation: floatHeart linear infinite;
+
             pointer-events: none;
+
             z-index: 1;
         }
 
         @keyframes floatHeart {
+
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
                 opacity: 0;
             }
 
@@ -108,7 +129,10 @@
             }
 
             100% {
-                transform: translateY(-110vh) rotate(360deg);
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
                 opacity: 0;
             }
         }
@@ -118,36 +142,42 @@
         ========================= */
 
         #page2 {
-            background-image:
-                linear-gradient(
-                    rgba(255, 192, 210, 0.35),
-                    rgba(255, 255, 255, 0.45)
-                ),
-                url("picture.jpg");
-
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(
+                135deg,
+                #fff,
+                #ffd6e4,
+                #fff0f5
+            );
         }
 
         .message-box {
             width: min(85%, 700px);
+
             padding: 45px 35px;
+
             background: rgba(255, 255, 255, 0.82);
+
             border-radius: 30px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.2);
+
             backdrop-filter: blur(5px);
         }
 
         .message-box h2 {
             color: #e83e70;
+
             font-size: clamp(30px, 6vw, 55px);
+
             margin-bottom: 25px;
         }
 
         .message-box p {
             color: #555;
+
             font-size: clamp(18px, 3vw, 25px);
+
             line-height: 1.6;
         }
 
@@ -170,50 +200,70 @@
 
         .question-box {
             width: 90%;
+
             z-index: 5;
         }
 
         .question-box h1 {
             color: #e83e70;
+
             font-size: clamp(38px, 8vw, 75px);
+
             margin-bottom: 50px;
+
             text-shadow: 2px 2px white;
         }
 
         .buttons {
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             gap: 25px;
+
             position: relative;
+
             min-height: 80px;
         }
 
         .yes-button,
         .no-button {
             border: none;
+
             padding: 15px 40px;
+
             border-radius: 50px;
+
             font-size: 22px;
+
             cursor: pointer;
+
             transition: 0.2s;
         }
 
         .yes-button {
             background: #f06292;
+
             color: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.15);
         }
 
         .yes-button:hover {
             transform: scale(1.1);
+
             background: #e83e70;
         }
 
         .no-button {
             background: white;
+
             color: #e83e70;
+
             border: 2px solid #f06292;
+
             position: relative;
         }
 
@@ -223,14 +273,20 @@
 
         .yes-message {
             display: none;
+
             margin-top: 30px;
+
             color: #e83e70;
+
             font-size: 28px;
+
             font-weight: bold;
+
             animation: pop 0.5s ease;
         }
 
         @keyframes pop {
+
             0% {
                 transform: scale(0);
             }
@@ -261,9 +317,11 @@
             .yes-button,
             .no-button {
                 padding: 13px 30px;
+
                 font-size: 19px;
             }
         }
+
     </style>
 </head>
 
@@ -291,8 +349,12 @@
                 of the Month! 💗
             </h1>
 
-            <button class="next-button" onclick="goToPage2()">
-                Next 
+            <button
+                class="next-button"
+                onclick="goToPage2()">
+
+                Next
+
             </button>
 
         </div>
@@ -308,7 +370,9 @@
 
         <div class="message-box">
 
-            <h2>Here's a little something for you </h2>
+            <h2>
+                Here's a little something for you
+            </h2>
 
             <p>
                 I hope you have a great day!
@@ -317,8 +381,12 @@
                 smiles, and good things today. 🌸
             </p>
 
-            <button class="next-button" onclick="goToPage3()">
-                Next 
+            <button
+                class="next-button"
+                onclick="goToPage3()">
+
+                Next
+
             </button>
 
         </div>
@@ -335,24 +403,39 @@
         <div class="question-box">
 
             <h1>
-                Will you go on a date with me? 
+                Will you go on a date with me?
             </h1>
 
             <div class="buttons">
 
-                <button class="yes-button" onclick="sayYes()">
-                    YES <3
+                <button
+                    class="yes-button"
+                    onclick="sayYes()">
+
+                    YES &lt;3
+
                 </button>
 
-                <button class="no-button" id="noButton">
-                    NO :>
+
+                <button
+                    class="no-button"
+                    id="noButton">
+
+                    NO :&gt;
+
                 </button>
 
             </div>
 
-            <div class="yes-message" id="yesMessage">
-                YEY, THANK YOU FOR ANSWERING YES! :p<br>
+
+            <div
+                class="yes-message"
+                id="yesMessage">
+
+                YEY, THANK YOU FOR ANSWERING YES! :p
+                <br>
                 It's a date! 🌸💕
+
             </div>
 
         </div>
@@ -366,25 +449,41 @@
 
     <script>
 
-        const music = document.getElementById("bgMusic");
+        /* =========================
+           GET PAGES AND MUSIC
+        ========================= */
 
-        const page1 = document.getElementById("page1");
-        const page2 = document.getElementById("page2");
-        const page3 = document.getElementById("page3");
+        const music =
+            document.getElementById("bgMusic");
+
+        const page1 =
+            document.getElementById("page1");
+
+        const page2 =
+            document.getElementById("page2");
+
+        const page3 =
+            document.getElementById("page3");
+
 
         /* =========================
            PAGE 1 → PAGE 2
-           MUSIC STARTS HERE
+           START MUSIC
         ========================= */
 
         function goToPage2() {
 
-            // Start music after user clicks Next
-            music.play().catch(error => {
-                console.log("Music could not start:", error);
+            music.play().catch(function(error) {
+
+                console.log(
+                    "Music could not start:",
+                    error
+                );
+
             });
 
             page1.classList.remove("active");
+
             page2.classList.add("active");
         }
 
@@ -396,8 +495,8 @@
         function goToPage3() {
 
             page2.classList.remove("active");
-            page3.classList.add("active");
 
+            page3.classList.add("active");
         }
 
 
@@ -407,7 +506,9 @@
 
         function sayYes() {
 
-            document.getElementById("yesMessage").style.display = "block";
+            document
+                .getElementById("yesMessage")
+                .style.display = "block";
 
         }
 
@@ -416,35 +517,70 @@
            NO BUTTON
         ========================= */
 
-        const noButton = document.getElementById("noButton");
+        const noButton =
+            document.getElementById("noButton");
 
-        noButton.addEventListener("mouseenter", moveNoButton);
-        noButton.addEventListener("touchstart", moveNoButton);
-        noButton.addEventListener("click", moveNoButton);
+
+        noButton.addEventListener(
+            "mouseenter",
+            moveNoButton
+        );
+
+
+        noButton.addEventListener(
+            "touchstart",
+            moveNoButton
+        );
+
+
+        noButton.addEventListener(
+            "click",
+            moveNoButton
+        );
+
 
         function moveNoButton(event) {
 
             event.preventDefault();
 
-            const buttonWidth = noButton.offsetWidth;
-            const buttonHeight = noButton.offsetHeight;
 
-            const maxX = window.innerWidth - buttonWidth - 20;
-            const maxY = window.innerHeight - buttonHeight - 20;
+            const buttonWidth =
+                noButton.offsetWidth;
 
-            const randomX = Math.max(
-                20,
-                Math.random() * maxX
-            );
+            const buttonHeight =
+                noButton.offsetHeight;
 
-            const randomY = Math.max(
-                20,
-                Math.random() * maxY
-            );
 
-            noButton.style.position = "fixed";
-            noButton.style.left = randomX + "px";
-            noButton.style.top = randomY + "px";
+            const maxX =
+                window.innerWidth -
+                buttonWidth -
+                20;
+
+
+            const maxY =
+                window.innerHeight -
+                buttonHeight -
+                20;
+
+
+            const randomX =
+                Math.random() * maxX;
+
+
+            const randomY =
+                Math.random() * maxY;
+
+
+            noButton.style.position =
+                "fixed";
+
+
+            noButton.style.left =
+                Math.max(20, randomX) + "px";
+
+
+            noButton.style.top =
+                Math.max(20, randomY) + "px";
 
         }
 
@@ -455,34 +591,61 @@
 
         function createHeart() {
 
-            const heart = document.createElement("div");
+            const heart =
+                document.createElement("div");
+
 
             heart.classList.add("heart");
 
-            const hearts = ["💗", "💕", "🤍", "♡", "♥"];
+
+            const hearts = [
+                "💗",
+                "💕",
+                "🤍",
+                "♡",
+                "♥"
+            ];
+
 
             heart.innerHTML =
-                hearts[Math.floor(Math.random() * hearts.length)];
+                hearts[
+                    Math.floor(
+                        Math.random() *
+                        hearts.length
+                    )
+                ];
+
 
             heart.style.left =
                 Math.random() * 100 + "vw";
 
+
             heart.style.fontSize =
                 (15 + Math.random() * 30) + "px";
+
 
             heart.style.animationDuration =
                 (5 + Math.random() * 6) + "s";
 
+
             document.body.appendChild(heart);
 
-            setTimeout(() => {
+
+            setTimeout(function() {
+
                 heart.remove();
+
             }, 11000);
 
         }
 
-        // Create hearts continuously
-        setInterval(createHeart, 500);
+
+        /* Create hearts continuously */
+
+        setInterval(
+            createHeart,
+            500
+        );
 
     </script>
 
