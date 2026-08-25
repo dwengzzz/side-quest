@@ -1,1 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 26th 💗</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           GENERAL PAGE SETTINGS
+        ========================= */
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease;
+        }
+
+        .page.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* =========================
+           PAGE 1
+        ========================= */
+
+        #page1 {
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #ffe1ec,
+                #ffffff,
+                #ffc4d8
+            );
+        }
+
+        .front-content {
+            z-index: 5;
+            padding: 30px;
+        }
+
+        .front-content h1 {
+            color: #e83e70;
+            font-size: clamp(40px, 8vw, 90px);
+            margin-bottom: 40px;
+            text-shadow: 2px 3px 0px white;
+        }
+
+        .next-button {
+            border: none;
+            background: #f06292;
+            color: white;
+            padding: 15px 45px;
+            font-size: 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .next-button:hover {
+            background: #e83e70;
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 25px;
+            animation: floatHeart linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           PAGE 2
+        ========================= */
+
+        #page2 {
+            background-image:
+                linear-gradient(
+                    rgba(255, 192, 210, 0.35),
+                    rgba(255, 255, 255, 0.45)
+                ),
+                url("picture.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .message-box {
+            width: min(85%, 700px);
+            padding: 45px 35px;
+            background: rgba(255, 255, 255, 0.82);
+            border-radius: 30px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .message-box h2 {
+            color: #e83e70;
+            font-size: clamp(30px, 6vw, 55px);
+            margin-bottom: 25px;
+        }
+
+        .message-box p {
+            color: #555;
+            font-size: clamp(18px, 3vw, 25px);
+            line-height: 1.6;
+        }
+
+        .message-box .next-button {
+            margin-top: 30px;
+        }
+
+        /* =========================
+           PAGE 3
+        ========================= */
+
+        #page3 {
+            background: linear-gradient(
+                135deg,
+                #fff,
+                #ffd6e4,
+                #fff0f5
+            );
+        }
+
+        .question-box {
+            width: 90%;
+            z-index: 5;
+        }
+
+        .question-box h1 {
+            color: #e83e70;
+            font-size: clamp(38px, 8vw, 75px);
+            margin-bottom: 50px;
+            text-shadow: 2px 2px white;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .yes-button,
+        .no-button {
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 22px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .yes-button {
+            background: #f06292;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .yes-button:hover {
+            transform: scale(1.1);
+            background: #e83e70;
+        }
+
+        .no-button {
+            background: white;
+            color: #e83e70;
+            border: 2px solid #f06292;
+            position: relative;
+        }
+
+        /* =========================
+           YES MESSAGE
+        ========================= */
+
+        .yes-message {
+            display: none;
+            margin-top: 30px;
+            color: #e83e70;
+            font-size: 28px;
+            font-weight: bold;
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .front-content h1 {
+                font-size: 45px;
+            }
+
+            .message-box {
+                padding: 35px 25px;
+            }
+
+            .question-box h1 {
+                font-size: 42px;
+            }
+
+            .yes-button,
+            .no-button {
+                padding: 13px 30px;
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         BACKGROUND MUSIC
+    ========================= -->
+
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =========================
+         PAGE 1
+    ========================= -->
+
+    <section id="page1" class="page active">
+
+        <div class="front-content">
+
+            <h1>
+                Happy 26th<br>
+                of the Month! 💗
+            </h1>
+
+            <button class="next-button" onclick="goToPage2()">
+                Next 
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 2
+    ========================= -->
+
+    <section id="page2" class="page">
+
+        <div class="message-box">
+
+            <h2>Here's a little something for you </h2>
+
+            <p>
+                I hope you have a great day!
+                <br><br>
+                You deserve all the happiness,
+                smiles, and good things today. 🌸
+            </p>
+
+            <button class="next-button" onclick="goToPage3()">
+                Next 
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGE 3
+    ========================= -->
+
+    <section id="page3" class="page">
+
+        <div class="question-box">
+
+            <h1>
+                Will you go on a date with me? 
+            </h1>
+
+            <div class="buttons">
+
+                <button class="yes-button" onclick="sayYes()">
+                    YES <3
+                </button>
+
+                <button class="no-button" id="noButton">
+                    NO :>
+                </button>
+
+            </div>
+
+            <div class="yes-message" id="yesMessage">
+                YEY, THANK YOU FOR ANSWERING YES! :p<br>
+                It's a date! 🌸💕
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const music = document.getElementById("bgMusic");
+
+        const page1 = document.getElementById("page1");
+        const page2 = document.getElementById("page2");
+        const page3 = document.getElementById("page3");
+
+        /* =========================
+           PAGE 1 → PAGE 2
+           MUSIC STARTS HERE
+        ========================= */
+
+        function goToPage2() {
+
+            // Start music after user clicks Next
+            music.play().catch(error => {
+                console.log("Music could not start:", error);
+            });
+
+            page1.classList.remove("active");
+            page2.classList.add("active");
+        }
+
+
+        /* =========================
+           PAGE 2 → PAGE 3
+        ========================= */
+
+        function goToPage3() {
+
+            page2.classList.remove("active");
+            page3.classList.add("active");
+
+        }
+
+
+        /* =========================
+           YES BUTTON
+        ========================= */
+
+        function sayYes() {
+
+            document.getElementById("yesMessage").style.display = "block";
+
+        }
+
+
+        /* =========================
+           NO BUTTON
+        ========================= */
+
+        const noButton = document.getElementById("noButton");
+
+        noButton.addEventListener("mouseenter", moveNoButton);
+        noButton.addEventListener("touchstart", moveNoButton);
+        noButton.addEventListener("click", moveNoButton);
+
+        function moveNoButton(event) {
+
+            event.preventDefault();
+
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            const maxX = window.innerWidth - buttonWidth - 20;
+            const maxY = window.innerHeight - buttonHeight - 20;
+
+            const randomX = Math.max(
+                20,
+                Math.random() * maxX
+            );
+
+            const randomY = Math.max(
+                20,
+                Math.random() * maxY
+            );
+
+            noButton.style.position = "fixed";
+            noButton.style.left = randomX + "px";
+            noButton.style.top = randomY + "px";
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.classList.add("heart");
+
+            const hearts = ["💗", "💕", "🤍", "♡", "♥"];
+
+            heart.innerHTML =
+                hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (15 + Math.random() * 30) + "px";
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 6) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 11000);
+
+        }
+
+        // Create hearts continuously
+        setInterval(createHeart, 500);
+
+    </script>
+
+</body>
+</html>
